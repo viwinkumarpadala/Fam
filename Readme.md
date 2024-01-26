@@ -1,8 +1,8 @@
 # Fampay-Backend Assignment(Intern)
 
 ## Tech Stacks used:
-Backend- Flask, Rabbitmq, Docker, MongoDB
-Frontend- ReactJS
+### Backend- Flask, Rabbitmq, Docker, MongoDB
+### Frontend- ReactJS
 
 # Routes 
 ## Sample Cached videos Route->  
