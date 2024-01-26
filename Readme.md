@@ -43,7 +43,7 @@ source venv/Scripts/activate
 ### python -m pip install datetime
 ### python -m pip install flask-cors
 
-## create a dotenv file with these values:
+## create a dotenv file in the backend folder with these values:
 ### db_url=
 ### api_key=
 ### api_key2=
