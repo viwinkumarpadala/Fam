@@ -22,9 +22,9 @@ Sample search Videos Route->
 # Getting started:
 
 ### Clone the application: 
-
+git clone https://github.com/viwinkumarpadala/Fampay-assignment.git
 ### Go to the the Backend of the application:
-cd FAMPAy
+cd FAMPAY
 ### Go to the Backend part of the application:
 cd backend
 ### Create a virtual environment:
