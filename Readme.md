@@ -41,7 +41,6 @@ source venv/Scripts/activate
 ### python -m pip install dotenv
 ### python -m pip install pymongo
 ### python -m pip install datetime
-### python -m pip install googleapiclient
 ### python -m pip install flask-cors
 
 ## create a dotenv file with these values:
