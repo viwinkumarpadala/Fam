@@ -5,18 +5,18 @@ Backend- Flask, Rabbitmq, Docker, MongoDB
 Frontend- ReactJS
 
 # Routes 
-Sample Cached videos Route->  
+## Sample Cached videos Route->  
  http://127.0.0.1:5000/videos/cached?page=1  or
  http://127.0.0.1:5000/videos/cached
-Sample search Videos Route-> 
+## Sample search Videos Route-> 
  http://127.0.0.1:5000/videos?query=cars&page=1 or
  http://127.0.0.1:5000/videos?query=cars 
 
 # Functionalities:
--> GET routes for getting the data from the backend of the application.
--> Asynchornous processing in the background that runs for every 10 seconds.
--> Dashboard for viewing the videos on the frontend side
--> Can use multiple alternative api keys for handling the case when one of them is expired
+### -> GET routes for getting the data from the backend of the application.
+### -> Asynchornous processing in the background that runs for every 10 seconds.
+### -> Dashboard for viewing the videos on the frontend side
+### -> Can use multiple alternative api keys for handling the case when one of them is expired
 
 
 # Getting started:
@@ -33,28 +33,28 @@ python -m venv venv
 source venv/Scripts/activate
 
 ### choose the python interpreter in the view part of vs code
-### upgrade pip
-python -m pip install --upgrade pip
-### install the dependencies:
-python -m pip install flask
-python -m pip install celery
-python -m pip install dotenv
-python -m pip install pymongo
-python -m pip install datetime
-python -m pip install googleapiclient
-python 0m pip install flask-cors
+## upgrade pip:
+### python -m pip install --upgrade pip
+## install the dependencies:
+### python -m pip install flask
+### python -m pip install celery
+### python -m pip install dotenv
+### python -m pip install pymongo
+### python -m pip install datetime
+### python -m pip install googleapiclient
+### python -m pip install flask-cors
 
-### create a dotenv file with these values:
-db_url=
-api_key=
-api_key2=
-api_key3=
-api_key4=
-api_key5=
+## create a dotenv file with these values:
+### db_url=
+### api_key=
+### api_key2=
+### api_key3=
+### api_key4=
+### api_key5=
 
-### Also make sure to change the rabbitq default user and password in the docker-compose.yml file:
-RABBITMQ_DEFAULT_USER: username
-RABBITMQ_DEFAULT_PASS: password
+## Also make sure to change the rabbitq default user and password in the docker-compose.yml file:
+### RABBITMQ_DEFAULT_USER: username
+### RABBITMQ_DEFAULT_PASS: password
 
 
 ### run the flask server:
