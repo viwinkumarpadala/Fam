@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  rabbitmq:
+    hostname: rabbit
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"  # RabbitMQ main port
+      - "15672:15672"  # RabbitMQ management plugin port
+    environment:
+      RABBITMQ_DEFAULT_USER: viwin
+      RABBITMQ_DEFAULT_PASS: kumar
+
+  celery-worker:
+    build:
+      context: .
+    command: celery -A tasks worker --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq
+
+  celery-beat:
+    build:
+      context: .
+    command: sh -c "mkdir -p /var/run/celery && celery -A tasks beat --loglevel=info"
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq

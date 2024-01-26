@@ -1,0 +1,37 @@
+So, lets get started with the assignment.
+
+First lets choose the tech stacks for doing the assignment.
+
+Backend:- MongoDB, Flask, Celery, Rabbitmq, Docker
+Frontend:- Reactjs 
+
+
+Steps:
+1) Complete the backend server first for the requirements
+2) Create an asynchronous process using Celery, Rabbitmq and Docker
+3) Adding multiple api keys for usage(bonus part)
+4) Complete the Frontend part(bonus part)
+
+
+Progress:
+
+->created a virtual environment for running my application
+->installed required dependencies like celery etc.
+->created a database in MongoDB cluster
+->read about youtube data api and their syntaxes for queries and responses
+->and then I got an idea for the fetch_videos_from_youtube function, and implemented and verified that.
+->created a basic server that can use search query for the search bar, and cache data when we first open the website
+ and also implemented the pagination for the responses.
+->for video caching, first i am looking into the db, so that i will know if I have any latest data on cricket, and if it is present,
+then i am using that data as a response, or else I am using a function that I have defined in server.py to get the responses in a reverse chronological order
+of their published data and getting the data for the default search query cricket.
+->everything went well so far.
+-> and then I have started the asynchronous processing part, for that I have decided to use Rabbitmq as a message queue, and
+Celery for further processing.
+->I have declared the function using celery and initialized the application and created a worker node succesfully for asynchornous processing.
+->and also I have used celery-beat for the periodic scheduling purpose, that will schedule a task every 10 seconds.
+->and then I have defined the docker-compose.yml file, and then Dockerfile and then implemented the asynchornous process successfully,
+by creating 3 containers, 1->rabbitmq, 2->backend-worker for asynchornous processing, 3->celery-beat for scheduling the tasks every 10 seconds.
+->and then I have successfully integrated with the frontend of the application
+->Finally I have completed all the requirements of the assignment and submitted that.
+
