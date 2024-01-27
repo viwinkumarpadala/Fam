@@ -68,11 +68,10 @@ docker-compose build
 ### up the docker compose:
 docker-compose up
 
-### now open another terminal and redirect to the frontend folder
+### now open another terminal and direct to the frontend folder
 cd frontend
 
 ### install the dependencies:
-npm init
 npm install
 
 ### Start the frontend part of the application:
