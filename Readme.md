@@ -26,8 +26,8 @@ https://www.loom.com/share/dadf023fc8134d8a9c2143dc42ca1952?sid=1c8a8035-067d-4d
 
 ### Clone the application: 
 git clone https://github.com/viwinkumarpadala/Fampay-assignment.git
-### Go to the the Backend of the application:
-cd FAMPAY
+### Go to the application:
+cd fapay-assignment
 ### Go to the Backend part of the application:
 cd backend
 ### Create a virtual environment:
@@ -39,12 +39,7 @@ source venv/Scripts/activate
 ## upgrade pip:
 ### python -m pip install --upgrade pip
 ## install the dependencies:
-### python -m pip install flask
-### python -m pip install celery
-### python -m pip install dotenv
-### python -m pip install pymongo
-### python -m pip install datetime
-### python -m pip install flask-cors
+### python -m pip install flask celery dotenv pymongo datetime flask-cors
 
 ## create a dotenv file in the backend folder with these values:
 ### db_url=
