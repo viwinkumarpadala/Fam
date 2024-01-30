@@ -39,7 +39,7 @@ source venv/Scripts/activate
 ## upgrade pip:
 ### python -m pip install --upgrade pip
 ## install the dependencies:
-### python -m pip install flask celery dotenv pymongo datetime flask-cors
+python -m pip install flask celery dotenv pymongo datetime flask-cors
 
 ## create a dotenv file in the backend folder with these values:
 ### db_url=
