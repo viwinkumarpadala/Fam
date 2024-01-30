@@ -6,6 +6,7 @@ from googleapiclient.discovery import build
 from datetime import datetime
 from dotenv import load_dotenv
 from flask_cors import CORS
+from googleapiclient.errors import HttpError
 import os
 
 load_dotenv()
@@ -27,41 +28,50 @@ API_KEY5 = os.getenv('api_key5')
 
 #Handling the case for having multiple keys, and use an alternative key, if one of them not works
 API_KEY = API_KEY or API_KEY2 or API_KEY3 or API_KEY4 or API_KEY5
-
+API_KEYS=[API_KEY, API_KEY2, API_KEY3, API_KEY4, API_KEY5]
 # Function to fetch videos from YouTube API using a search query( for the search bar feature)
 def fetch_videos_from_youtube(query):
     # Taking only the latest videos after date 01/01/2023
     published_after = datetime(2023, 1, 1)
-
     published_after_str = published_after.isoformat() + 'Z'
 
-    youtube = build('youtube', 'v3', developerKey=API_KEY)
+    for key in API_KEYS:
+        youtube = build('youtube', 'v3', developerKey=key)
 
-    # Getting 100 responses in youtube api so that we can use that for pagination 20 videos per page
-    search_response = youtube.search().list(
-        q=query,
-        type='video',
-        order='date',
-        publishedAfter=published_after_str,
-        part='snippet',
-        maxResults=100 
-    ).execute()
+        try:
+            # Getting 100 responses in youtube api so that we can use that for pagination 20 videos per page
+            search_response = youtube.search().list(
+                q=query,
+                type='video',
+                order='date',
+                publishedAfter=published_after_str,
+                part='snippet',
+                maxResults=100 
+            ).execute()
 
-    # Create an array for storing the videos data from the response
-    videos = []
-    for item in search_response['items']:
-        video = {
-            'title': item['snippet']['title'],
-            'description': item['snippet']['description'],
-            'publishedAt': item['snippet']['publishedAt'],
-            'thumbnail': item['snippet']['thumbnails']['default']['url'],
-            'videoId': item['id']['videoId']
-        }
-        videos.append(video)
-    #This is sorted to maintain the reverse chronological order in the response
-    videos.sort(key=lambda x: x['publishedAt'], reverse=True)
-    return videos
-
+            # Create an array for storing the videos data from the response
+            videos = []
+            for item in search_response['items']:
+                video = {
+                    'title': item['snippet']['title'],
+                    'description': item['snippet']['description'],
+                    'publishedAt': item['snippet']['publishedAt'],
+                    'thumbnail': item['snippet']['thumbnails']['default']['url'],
+                    'videoId': item['id']['videoId']
+                }
+                videos.append(video)
+            
+            #This is sorted to maintain the reverse chronological order in the response
+            videos.sort(key=lambda x: x['publishedAt'], reverse=True)
+            return videos
+        
+        except HttpError as e:
+            if e.resp.status == 403:
+                # Rate limit exceeded, try next API key
+                continue
+            else:
+                # Handle other HTTP errors
+                raise
 # GET route for getting the videos for the search bar functionality
 @app.route('/videos')
 def get_videos_from_youtube():
