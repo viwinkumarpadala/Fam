@@ -4,9 +4,6 @@
 ### Backend- Flask, Rabbitmq, Docker, MongoDB
 ### Frontend- ReactJS
 
-## Reference video for demo and explanation of my work:
-https://www.loom.com/share/dadf023fc8134d8a9c2143dc42ca1952?sid=1c8a8035-067d-4d2f-9ab3-988f971df404
-
 # Routes 
 ## Sample Cached videos Route->  
  http://127.0.0.1:5000/videos/cached?page=1  or
@@ -19,7 +16,7 @@ https://www.loom.com/share/dadf023fc8134d8a9c2143dc42ca1952?sid=1c8a8035-067d-4d
 ### -> GET routes for getting the data from the backend of the application.
 ### -> Asynchornous processing in the background that runs for every 10 seconds.
 ### -> Dashboard for viewing the videos on the frontend side
-
+### -> Handles multiple keys for null key values and rate limitation cases
 
 
 # Getting started:
@@ -27,7 +24,7 @@ https://www.loom.com/share/dadf023fc8134d8a9c2143dc42ca1952?sid=1c8a8035-067d-4d
 ### Clone the application: 
 git clone https://github.com/viwinkumarpadala/Fampay-assignment.git
 ### Go to the application:
-cd fapay-assignment
+cd fampay-assignment
 ### Go to the Backend part of the application:
 cd backend
 ### Create a virtual environment:
