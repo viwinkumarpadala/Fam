@@ -25,7 +25,7 @@
 ### Clone the application: 
 git clone https://github.com/viwinkumarpadala/Fampay-assignment.git
 ### Go to the application:
-cd fapay-assignment
+cd fampay-assignment
 ### Go to the Backend part of the application:
 cd backend
 ### Create a virtual environment:
