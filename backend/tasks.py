@@ -17,8 +17,8 @@ db_url = os.getenv('db_url')
 client = MongoClient(db_url)
 db = client['youtube_database']
 collection = db['videos']
-# creating index on the field published_at
-collection.create_index([('published_at', -1)])
+# creating index on the field publishedAt
+collection.create_index([('publishedAt', -1)])
 
 # Getting the youtube api key from .env file
 API_KEY = os.getenv('api_key')
@@ -47,7 +47,7 @@ def fetch_and_store_videos():
                 order='date',
                 publishedAfter=published_after_str,
                 part='snippet',
-                maxResults=20
+                maxResults=60
             ).execute()
 
             videos = []
@@ -78,25 +78,8 @@ def fetch_and_store_videos():
 # Schedule the task to run every 10 seconds
 app.conf.beat_schedule = {
     'fetch-videos-every-10-seconds': {
-        'task': 'tasks.fetch_and_store_videos',  # Note: Use the module path to refer to the task
+        'task': 'tasks.fetch_and_store_videos',  
         'schedule': 10.0,
     },
 }
 
-
-# from celery import Celery
-# from celery.schedules import crontab
-
-# app = Celery('tasks', broker='amqp://viwin:kumar@rabbitmq:5672//')
-
-# app.conf.beat_schedule = {
-#     'task-name': {
-#         'task': 'tasks.print_message',
-#         'schedule': 10.0,  # Run every 10 seconds
-#     },
-# }
-
-# @app.task
-# def print_message():
-#     text='hello'
-#     print(text)

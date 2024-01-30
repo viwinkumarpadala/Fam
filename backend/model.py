@@ -8,10 +8,10 @@ load_dotenv()
 
 #creating a class for defining the data format
 class YouTubeVideo:
-    def __init__(self, title, description, published_at, thumbnail, video_id):
+    def __init__(self, title, description, publishedAt, thumbnail, video_id):
         self.title = title
         self.description = description
-        self.published_at = published_at
+        self.publishedAt = publishedAt
         self.thumbnail = thumbnail
         self.video_id = video_id
 
@@ -19,7 +19,7 @@ class YouTubeVideo:
         return {
             'title': self.title,
             'description': self.description,
-            'published_at': self.published_at,
+            'publishedAt': self.publishedAt,
             'thumbnail': self.thumbnail,
             'video_id': self.video_id
         }
@@ -31,4 +31,4 @@ client = MongoClient(db_url)
 db = client['youtube_database']  
 collection = db['videos'] 
 # creating index on the field published_at
-collection.create_index([('published_at', -1)])
+collection.create_index([('publishedAt', -1)])
