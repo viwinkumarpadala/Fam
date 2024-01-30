@@ -16,7 +16,7 @@
 ### -> GET routes for getting the data from the backend of the application.
 ### -> Asynchornous processing in the background that runs for every 10 seconds.
 ### -> Dashboard for viewing the videos on the frontend side
-### -> Handles multiple keys for null key values and rate limitation cases
+### -> Handled the case of null key values and rate limitation using multiple keys
 
 
 # Getting started:
@@ -34,7 +34,7 @@ source venv/Scripts/activate
 
 ### choose the python interpreter in the view part of vs code
 ## upgrade pip:
-### python -m pip install --upgrade pip
+python -m pip install --upgrade pip
 ## install the dependencies:
 python -m pip install flask celery dotenv pymongo datetime flask-cors
 
