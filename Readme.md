@@ -1,4 +1,4 @@
-# Fampay-Backend Assignment(Intern)
+# fam-backend
 
 ## Tech Stacks used:
 ### Backend- Flask, Rabbitmq, Docker, MongoDB
